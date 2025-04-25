@@ -1,0 +1,13 @@
+@startuml
+actor Utilisateur
+participant "React App" as React
+participant "API .NET" as API
+participant "PostgreSQL" as DB
+
+Utilisateur -> React: Interagit avec l'interface
+React -> API: Envoie une requête HTTP
+API -> DB: Exécute une commande SQL
+DB -> API: Renvoie les résultats SQL
+API -> React: Renvoie les données en JSON
+React -> Utilisateur: Met à jour l'interface
+@enduml

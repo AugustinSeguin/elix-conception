@@ -1,0 +1,48 @@
+@startuml
+    !define RECTANGLE class
+    !define ACTOR actor
+
+    skinparam {
+        backgroundColor #f0f0f0
+        actorStyle awesome
+        usecase {
+            BackgroundColor yellow
+            ArrowColor black
+            BorderColor black
+        }
+    }
+
+    actor "Utilisateur non authentifié" as UnauthUser #lightblue
+    actor "Utilisateur authentifié" as AuthUser #lightgreen
+    actor "Administrateur" as Admin #lightyellow
+
+    usecase "Se connecter" as Login #orange
+    usecase "S'inscrire" as Register #orange
+    usecase "Mot de passe oublié" as ForgotPassword #orange
+
+    usecase "Ajouter une animation" as AddAnimation #blue
+    usecase "Associer une question à un thème" as AssociateQuestion #blue
+    usecase "Gérer les publicités" as ManageAdds #blue
+    usecase "Configurer des notifications" as ConfigureNotifications #blue
+
+    usecase "Gérer mon compte" as ManageAccount #green
+    usecase "Consulter mes scores" as ViewScores #green
+    usecase "Consulter des ressources" as ViewResources #green
+    usecase "Discuter avec une IA" as ChatWithAI #green
+    usecase "Jouer à un jeu" as PlayGame #green
+
+    UnauthUser --> Login
+    UnauthUser --> Register
+    UnauthUser --> ForgotPassword
+
+    Admin --> AddAnimation
+    Admin --> AssociateQuestion
+    Admin --> ManageAdds
+    Admin --> ConfigureNotifications
+
+    AuthUser --> ManageAccount
+    AuthUser --> ViewScores
+    AuthUser --> ViewResources
+    AuthUser --> ChatWithAI
+    AuthUser --> PlayGame
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+actor Utilisateur
+participant "Controller" as C
+participant "Business Logic Layer" as BLL
+participant "Data Access Layer" as DAL
+participant "Database" as DB
+
+Utilisateur -> C: Envoie une requête HTTP
+C -> BLL: Appelle la méthode de logique métier
+BLL -> DAL: Appelle la méthode de repository (CRUD)
+DAL -> DB: Exécute une commande SQL via l'ORM
+DB -> DAL: Renvoie les résultats de la commande SQL
+DAL -> BLL: Renvoie les données traitées
+BLL -> C: Renvoie les données de logique métier
+C -> Utilisateur: Renvoie la réponse HTTP
+@enduml

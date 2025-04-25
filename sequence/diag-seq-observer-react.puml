@@ -1,0 +1,14 @@
+@startuml
+actor Utilisateur
+participant "React Component" as RC
+participant "API Service" as API
+participant "DOM" as DOM
+
+Utilisateur -> RC: Interagit avec l'interface
+RC -> API: Appelle une méthode pour récupérer les données
+API -> API: Traite la requête et récupère les données
+API -> RC: Renvoie les données au composant
+RC -> RC: Met à jour l'état du composant
+RC -> DOM: Met à jour le DOM avec les nouvelles données
+DOM -> Utilisateur: Affiche les mises à jour à l'utilisateur
+@enduml
