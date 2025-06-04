@@ -1,0 +1,21 @@
+@startuml
+title Cas d'utilisation - Jouer à un quiz dans Elix
+
+actor "Utilisateur authentifié" as user
+
+package "Quiz" {
+  
+  usecase "Choisir une catégorie de quiz" as UC_ChoixCat
+  usecase "Démarrer un nouveau jeu" as UC_Demarrer
+  usecase "Répondre aux 10 questions animées" as UC_Repondre
+  usecase "Afficher le score final" as UC_Score
+  usecase "Afficher la moyenne dans la catégorie" as UC_MajMoyenne
+
+  UC_ChoixCat --> UC_Demarrer
+  UC_Demarrer --> UC_Repondre
+  UC_Repondre --> UC_Score
+  UC_Score --> UC_MajMoyenne
+}
+
+user --> UC_ChoixCat
+@enduml

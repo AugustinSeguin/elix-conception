@@ -1,0 +1,25 @@
+@startuml
+title Cas d'utilisation - Utiliser le chat santé dans Elix
+
+actor "Utilisateur premium" as user
+
+package "Chat santé" {
+  
+  usecase "Lancer le chat avec un professionnel de santé" as UC_LancerChat
+  usecase "Discuter avec un professionnel de santé" as UC_Discuter
+  usecase "Gérer un rendez-vous" as UC_GererRDV
+  usecase "Prendre un rendez-vous" as UC_PrdRDV
+  usecase "Modifier un rendez-vous" as UC_ModRDV
+  usecase "Annuler un rendez-vous" as UC_AnnRDV
+  usecase "Rejoindre le rendez-vous visio-conférence" as UC_ParticiperRDV
+
+  UC_LancerChat --> UC_Discuter
+  UC_Discuter --> UC_GererRDV
+  UC_GererRDV --> UC_PrdRDV
+  UC_GererRDV --> UC_ModRDV
+  UC_GererRDV --> UC_AnnRDV
+  UC_GererRDV --> UC_ParticiperRDV
+}
+
+user --> UC_LancerChat
+@enduml

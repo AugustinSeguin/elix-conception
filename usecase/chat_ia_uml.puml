@@ -1,0 +1,15 @@
+@startuml
+title Cas d'utilisation - Utiliser le chat IA dans Elix
+
+actor "Utilisateur freemium" as user
+
+package "Chat IA" {
+  
+  usecase "Lancer le chat avec l'IA" as UC_LancerChatIA
+  usecase "Discuter avec l'IA (max 10 messages/jour)" as UC_DiscuterIA
+
+  UC_LancerChatIA --> UC_DiscuterIA
+}
+
+user --> UC_LancerChatIA
+@enduml
